@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KASC ChatBot</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+  #slider-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  #slider {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #005599;
+  }
+</style>
+</head>
+<body>
+  <img src="web.png" width="100%"height="12%">
+  <header>
+    
+    <div class="container">
+      
+      <h1>Kongu Arts and Science College</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="dept.html">Departments</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf8N9a4Qk42k0szg0YYLpfd6pbxq1aS2iMKNPXf9GIDgeazZQ/viewform?pli=1">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Welcome to KASC</h2>
+      <p>A premier institution for Arts and Science Education.</p>
+    </section>
+    <section class="info">
+      <h3>About the College</h3>
+      <p>
+        Kongu Arts and Science College is affiliated to Bharathiar University,
+        offering UG, PG, Research, and Value-added programs.
+      </p>
+    </section>
+  </main>
+<section style="background-color: #f9f9f9; padding: 40px 20px; font-family: Arial, sans-serif;">
+  <div style="max-width: 900px;">
+    <h2 style="color: #003366;">About The Institution</h2>
+    <p style="font-size: 1em; line-height: 1.8; color: #333;">
+      Kongu Arts and Science College is a leading co-educational institution in Erode, offering a variety of programmes in the Arts and Science stream. It is affiliated to Bharathiar University and is run by The Kongu Vellalar Institute of Technology Trust, Perundurai.
+    </p>
+
+    <h3 style="color: #003366; margin-top: 20px;">Vision</h3>
+    <p style="font-size: 1em; line-height: 1.8; color: #333;">
+      To impart knowledge and skills to rural youth in order to meet their intellectual and social aspirations and the cultural and technical needs of the society.
+    </p>
+
+    <h3 style="color: #003366; margin-top: 20px;">Mission</h3>
+    <ul style="font-size: 1em; line-height: 1.8; color: #333; padding-left: 20px;">
+      <li>To develop an effective curriculum and optimize institutionalized student activities</li>
+      <li>To involve learners in practical life situations</li>
+      <li>To expose students to rural realities</li>
+      <li>To sensitize learners to national heritage and values</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<div id="slider-container">
+  <img id="slider" src="kasc1.jpeg" alt="Slideshow Image" />
+  <div>
+    <button class="btn" onclick="prevImage()">Previous</button>
+    <button class="btn" onclick="nextImage()">Next</button>
+  </div>
+</div>
+
+  <footer>
+    <p>Contact us: helpdesk@kasc.ac.in | +91 424-2339933</p>
+  </footer>
+  <script src="script.js"></script>
+
+  <div id="chatbot-container">
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <select id="chat-options">
+        <option value="about">About the Institution</option>
+        <option value="courses">Courses Offered</option>
+        <option value="admission">Admission Enquiry</option>
+        <option value="results">Check Results</option>
+        <option value="contact">Contact Info</option>
+    <option value="infrastructure">Infrastructure</option>
+    <option value="activities">Clubs & Activities</option>
+      </select>
+      <button onclick="respondToSelection()">Ask</button>
+    </div>
+  </div>
+
+
+  
+
+
+  <div id="chatbot-icon" onclick="toggleChatbot()">
+    💬
+  </div>
+  <div id="chatbot-container" style="display: none;">
+    <div id="chatbot-header">KASC Assistant <span onclick="toggleChatbot()" style="cursor:pointer;float:right;">✖</span></div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <select id="chat-options">
+        <option value="">-- Choose a question --</option>
+        <option value="about">About the Institution</option>
+        <option value="courses">Courses Offered</option>
+        <option value="admission">Admission Enquiry</option>
+        <option value="results">Check Results</option>
+        <option value="contact">Contact Info</option>
+    <option value="infrastructure">Infrastructure</option>
+    <option value="activities">Clubs & Activities</option>
+      </select>
+      <button onclick="respondToSelection()">Ask</button>
+    </div>
+  </div>
+
+<script>
+  const images = [
+    "kasc1.jpeg",
+    "kasc2.jpg",
+    "kasc3.png",
+    "kasc4.png",
+    "kasc5.png",
+    "kasc6.png",
+    "kasc7.png",
+    "kasc8.png",
+    "kasc9.png",
+    "kasc10.jpg",
+    "kasc11.jpg",
+    "kasc12.jpg",
+    "kasc13.jpeg"
+  ];
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    const slider = document.getElementById("slider");
+    slider.src = images[index];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+</script>
+
+</body>
+</html>
