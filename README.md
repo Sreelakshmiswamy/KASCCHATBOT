@@ -50,6 +50,7 @@ Or drag the file into a browser window
 No server or installation is needed – it's a fully static project.
 
 🎨 Features
+
 Clean and responsive UI
 
 Department navigation
@@ -61,6 +62,7 @@ Visual gallery of campus images
 Smooth HTML navigation
 
 🛠️ Tools Used
+
 HTML
 
 CSS
@@ -68,6 +70,7 @@ CSS
 JAVASCRIPT
 
 📚 Future Scope
+
 Integrate real chatbot backend (like Dialogflow, Rasa, or OpenAI)
 
 Add live chat features
@@ -75,4 +78,5 @@ Add live chat features
 Connect to college API or database for real-time data
 
 👩‍💻 Author
+
 Sreelakshmi Swamy P
